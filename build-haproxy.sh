@@ -1,20 +1,20 @@
 #!/bin/bash
 set -e
+#yum install libtermcap-devel ncurses-devel libevent-devel readline-devel openssl-devel  
 
 mkdir -p /usr/src
 
 # Build Lua
 cd /usr/src
-wget http://www.lua.org/ftp/lua-5.3.2.tar.gz
-tar zxf lua-*.tar.gz
+#wget http://www.lua.org/ftp/lua-5.3.2.tar.gz
+tar zxf /marathon-lb/tgz/lua-*.tar.gz
 cd lua-*
 make -j4 linux LUA_LIB_NAME=lua53
 make -j4 install LUA_LIB_NAME=lua53
 
 # Build HAProxy
 cd /usr/src
-wget http://www.haproxy.org/download/1.6/src/haproxy-1.6.4.tar.gz
-tar xf haproxy-*.tar.gz
+tar xf /marathon-lb/tgz/haproxy-*.tar.gz
 cd haproxy-*
 make -j4 \
   TARGET=custom \

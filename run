@@ -46,7 +46,7 @@ if [ -n "${MESOS_SANDBOX-}" ] && [ -d "$MESOS_SANDBOX/templates" ]; then
   cp -v "$MESOS_SANDBOX/templates/"* templates/
 fi
 
-/usr/bin/runsv "$HAPROXY_SERVICE" &
+runsv "$HAPROXY_SERVICE" &
 RUNSV=$!
 ARGS=""
 
